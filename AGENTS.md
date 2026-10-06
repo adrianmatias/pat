@@ -13,6 +13,14 @@ own tools to it.
 4. Run the pattern. Respect its kill switches and "when not to".
 5. Record what the pattern got wrong (right back to the source, not around it — root-cause always).
 
+## log (every round)
+
+- `log/mat.md` — mat's log. Append-only. **The task is the latest prompt at the bottom.**
+- `log/agt.md` — the agent's replies. Append-only, one entry per round, **H1 = `# YYYY-MM-DD`** (same
+  shape as `log/mat.md`), topic subsections under `##` below it. Never rewrite, reorder or delete an
+  earlier entry. **Persist every reply there**: it is the portability record across harnesses.
+- Hosts get the same two files; `INSTALL.md` carries the block to copy.
+
 ## tool vocabulary (superpowers → this harness)
 
 `Agent` → `subagent` (fresh context) or `subagent_fork` (inherits trail — reviewers only);

@@ -68,14 +68,12 @@ Prefer this when the parent pins versions of several collections at once. It cos
 ## the log contract (do this at install, not later)
 
 pat assumes each host keeps an append-only trail; that is what survives a lost session or a harness
-swap. Give the host a `log/` and record the rule in its `AGENTS.md`:
+swap. Give the host a `log/` with `mat.md` (the human's prompts; the task is the latest prompt at the
+bottom) and `agt.md` (the agent's replies, one entry per round, `H1 = date`), then copy the `## log`
+block from pat's own [`AGENTS.md`](AGENTS.md) into the host's `AGENTS.md`. Keep it to those few
+lines: the host's `AGENTS.md` is the only always-loaded context.
 
-- `log/mat.md` — the human's log. Append-only. **The task is the latest prompt at the bottom.**
-- `log/agt.md` — the agent's replies. Append-only, one entry per round, **H1 = `# YYYY-MM-DD`**
-  (same shape as `log/mat.md`), topic subsections under `##` below it. Never rewrite, reorder or
-  delete an earlier entry.
-
-Keep that block to a few lines: the host's `AGENTS.md` is the only always-loaded context.
+pat's own [`log/`](log/) is this contract applied to pat — read it as the worked example.
 
 ## acceptance check (run it, do not assume it)
 
