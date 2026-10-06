@@ -17,6 +17,7 @@ executable recipe to load) — everything else stays on disk.
 ## layout
 
 ```
+INSTALL.md         how to mount pat into a project or vault (4 recipes + acceptance check)
 router/index.md    the router: one screen — catalog one-liners, routing rubric, roles, load contract
 router/choose.mjs  Jev picks the pattern for a task (Decisions API; rubric is the offline fallback)
 patterns/          portable pattern designs (human-readable, harness-agnostic)
@@ -45,14 +46,10 @@ vendor/superpowers vendored skill library (pinned 8ca22db, MIT)
 
 1. Route the task: `node router/choose.mjs "<task>"` (Jev decides), or read `router/index.md` and
    use the rubric. Load only what you route. (`AGENTS.md` says the same.)
-2. Mount per harness:
-   - **DeepSeek Harness** — symlink `skills/` into a preset
-     (`~/.dsh/.agent-presets/<id>/skills/`), or just tell the agent the path; the `skills/`
-     SKILL.md files carry runnable `workflow` JS (models resolve through the harness routes or the
-     local jev-router).
-   - **Generic agents** (Claude Code, Codex, …) — add `AGENTS.md` to context or copy `skills/`
-     into your skills directory; the SKILL.md format is agentskills.io-shaped.
-   - **hermes** — `skills/` into its skills dir; patterns map to `delegate_task`.
+2. Install it into a project or vault — **[`INSTALL.md`](INSTALL.md)**: four recipes (vault symlink,
+   DSH preset, vendored, submodule), the `.obsidian/` doctrine, the `log/mat.md` + `log/agt.md`
+   contract, and the acceptance check to run afterwards. Short version: one canonical clone, symlink
+   mounts, nothing copied.
 3. Model roles live in `models.md` — adjust the right column to your providers (deepseek 4.1 is the
    `base`/`main` workhorse: speed, price, capability, cache-hit). If you run a local model router
    (`jevonian/auto`), single-agent turns can just use it.

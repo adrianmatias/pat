@@ -28,5 +28,6 @@ pattern that fails gets fixed or deleted — never a patch on top).
 
 ## mounting
 
-Per-harness mount instructions live in `README.md`. This file is the contract; keep it the only
-standing context — everything else loads on demand.
+`INSTALL.md` carries the install recipes (vault/project symlink, DSH preset, vendored, submodule),
+the log contract to copy into a host, and the acceptance check. This file is the contract; keep it
+the only standing context — everything else loads on demand.
