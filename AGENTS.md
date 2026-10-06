@@ -15,7 +15,7 @@ own tools to it.
 
 ## log (every round)
 
-- `log/mat.md` — mat's log. Append-only. **The task is the latest prompt at the bottom.**
+- `log/mat.md` — the human's log. Append-only. **The task is the latest prompt at the bottom.**
 - `log/agt.md` — the agent's replies. Append-only, one entry per round, **H1 = `# YYYY-MM-DD`** (same
   shape as `log/mat.md`), topic subsections under `##` below it. Never rewrite, reorder or delete an
   earlier entry. **Persist every reply there**: it is the portability record across harnesses.

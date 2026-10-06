@@ -1,3 +1,6 @@
 # Obsidian editor state — per-device, rewritten by the app on every focus change.
-# The vault (obsidian/mat) carries the inverse rule; this repo does not version it.
+# A host vault may version its own .obsidian/; this repo does not version editor state.
 .obsidian/
+
+# JetBrains project state (same reason: per-machine, not content).
+.idea/

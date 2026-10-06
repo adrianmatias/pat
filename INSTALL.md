@@ -16,7 +16,7 @@ harness-specific except recipe 2.
 One canonical clone, mounted where it is used. No copies, no drift.
 
 ```bash
-git clone git@github.com:adrianmatias/pat.git ~/pro/pat      # the canonical clone
+git clone git@github.com:adrianmatias/pat.git ~/pat      # the canonical clone
 ln -s ../../pro/pat /path/to/vault/pat                      # relative: adjust ../ for your depth
 ```
 
@@ -38,9 +38,9 @@ A preset mounts `skills/` from its own directory, so link the three recipes in a
 editing pat updates the preset with no recopy:
 
 ```bash
-ln -s ~/pro/pat/skills/run-sandwich      ~/.dsh/.agent-presets/<preset>/skills/run-sandwich
-ln -s ~/pro/pat/skills/run-cheap-swarm   ~/.dsh/.agent-presets/<preset>/skills/run-cheap-swarm
-ln -s ~/pro/pat/skills/run-sr-and-jr     ~/.dsh/.agent-presets/<preset>/skills/run-sr-and-jr
+ln -s ~/pat/skills/run-sandwich      ~/.dsh/.agent-presets/<preset>/skills/run-sandwich
+ln -s ~/pat/skills/run-cheap-swarm   ~/.dsh/.agent-presets/<preset>/skills/run-cheap-swarm
+ln -s ~/pat/skills/run-sr-and-jr     ~/.dsh/.agent-presets/<preset>/skills/run-sr-and-jr
 ```
 
 Point the preset's own context at `pat/AGENTS.md` (the entry contract) and keep that line the only
@@ -78,7 +78,7 @@ pat's own [`log/`](log/) is this contract applied to pat — read it as the work
 ## acceptance check (run it, do not assume it)
 
 ```bash
-node ~/pro/pat/router/choose.mjs "a small doc fix"     # expect: route: <pattern> · confidence …
+node ~/pat/router/choose.mjs "a small doc fix"     # expect: route: <pattern> · confidence …
 head -3 /path/to/vault/pat/router/index.md             # expect: the router screen
 ls /path/to/vault/pat/patterns | wc -l                 # expect: 9
 ```
@@ -89,7 +89,7 @@ says no key, recipe 1–4 still hold — only the fast path is missing.
 ## keeping it current
 
 ```bash
-git -C ~/pro/pat pull
+git -C ~/pat pull
 ```
 
 Everything mounted follows, because nothing was copied. Vendored installs (recipe 3) are the

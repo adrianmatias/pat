@@ -4,8 +4,10 @@ A pattern book for **agentic work** — orchestration shapes for AI coding agent
 **load-on-demand router** for models, patterns and skills. Built for lean, efficient, powerful
 agentic engineering: route first, load only what you run.
 
-3-char named per the house obsession (`dsp`, `opo`, `mat`, `agt`, `log`, `raw`, `pro`…). Born from the practices documented across `~/pro` projects (dsp, opo, …) and stitched together with
-[obra/superpowers](https://github.com/obra/superpowers) (vendored, MIT).
+3-char named after a house habit (`dsp`, `opo`, `mat`, `agt`, `log`, `raw`…). Distilled from practice
+on real ML/data systems and stitched together with [obra/superpowers](https://github.com/obra/superpowers)
+(vendored, MIT). Self-contained: everything pat needs is in this repo, and it has no dependency on
+any other project.
 
 ## why
 
@@ -23,8 +25,9 @@ router/choose.mjs  Jev picks the pattern for a task (Decisions API; rubric is th
 patterns/          portable pattern designs (human-readable, harness-agnostic)
 skills/            executable recipes, SKILL.md format, loaded only when routed
 models.md          model roles → concrete ids (machine-local), cache discipline
-PRINCIPLES.md      the invariants every pattern obeys (extracted from ~/pro)
+PRINCIPLES.md      the invariants every pattern obeys (distilled from practice)
 AGENTS.md          agent entry contract (keep as the only standing context)
+log/               mat.md + agt.md — the append-only trail, as the contract applied to pat itself
 vendor/superpowers vendored skill library (pinned 8ca22db, MIT)
 ```
 

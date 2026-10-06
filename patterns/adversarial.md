@@ -38,6 +38,3 @@ surface**, not the artifact type.
 
 **Cost profile.** +1 mid-tier turn per review, bounded context. Buy it where one wrong answer costs
 more than a hundred reviews.
-
-*(The "review role: adversarial pass, never same family as the author" rule is documented in
-`~/pro/dsp/AGENTS.md`'s model-roles table.)*

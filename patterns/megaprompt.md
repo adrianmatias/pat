@@ -5,15 +5,14 @@ offers option menus, and the actual context never arrives whole.
 
 **Shape.** Compose **one entire file** and paste it as the *first user message* to a deep planning
 model. Do not chat around it first. **Demand a decision-complete plan — not an interview and not an
-options menu.** (Provenance: `opo/prompt/second-family-megaprompt.md`, `opus-master-plan.md`,
-`plan/prompt/foundational.md` — *"written to be attacked rather than admired"*.)
+options menu.** Write it to be attacked rather than admired.
 
-## anatomy (of the documented super-prompts)
+## anatomy (of a complete super-prompt)
 
 1. **The claim under test** + the constraints the plan must respect (including repo doctrine the
    task seems to violate — the plan must resolve the conflict, not dodge it).
-2. **Operator + budget as a rate, not a lump sum** (mat's attention per month), and the execution
-   model — the sandwich, not a fresh invention.
+2. **Operator + budget as a rate, not a lump sum** (the operator's attention per month), and the
+   execution model — the sandwich, not a fresh invention.
 3. **Verified facts** with sources/hashes: *"verified — do not re-research"*.
 4. **Ground truth**: the measured state, adversarially verified where numbers matter.
 5. **The structural decision + the unknowns** — each unknown gets a forced default verdict; *an

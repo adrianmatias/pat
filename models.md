@@ -16,7 +16,8 @@ right column per machine, keep the role names stable — patterns reference **ro
 | `hetero` | swarm diversity slot | repeating one family | rotate `mimo-v2.6-flash`, `glm-5.3-flash`, `qwen3.8-flash`, `kimi-k2.7-code` |
 
 Why deepseek 4.1 is `main`: speed, price, capability, and **prompt-cache friendliness** — it is the
-default workhorse for loops and swarms. (mat's standing preference.)
+default workhorse for loops and swarms. (A standing preference, not a requirement: the roles are the
+contract, the ids are today's pick.)
 
 ## routing through the jev router
 

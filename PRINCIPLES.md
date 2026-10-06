@@ -1,8 +1,8 @@
 # principles
 
-The steering layer every pattern obeys. Extracted from the `~/pro` projects (chiefly
-`dsp/foundation.md`, `dsp/AGENTS.md`, `opo/AGENTS.md` — the "objective > foundation > code" ladder);
-patterns may specialize them but never contradict them.
+The steering layer every pattern obeys. Distilled from practice on real ML/data systems, where the
+working rule was "objective > foundation > code-standard": a measurable target, the invariants that
+protect it, then the code rules. Patterns may specialize these but never contradict them.
 
 ## load-bearing invariants
 
@@ -46,9 +46,8 @@ patterns may specialize them but never contradict them.
 
 ## provenance
 
-`~/pro/dsp/foundation.md` (load-bearing invariants), `~/pro/dsp/AGENTS.md` (sandwich, model roles,
-swarm limits), `~/pro/opo/AGENTS.md` (work discipline, quality gates), reinforced by
-`vendor/superpowers` (evidence-before-claims, TDD, systematic debugging) and the conjecture-
-register discipline (`dsp/wiki/conjectures.md`: state → test → destroy or promote; a conjecture
-not on the register is a vibe). This file is the
-collection's distilled subset — the projects remain the source of truth.
+Distilled from practice on real ML/data systems, then reinforced by `vendor/superpowers`
+(evidence-before-claims, TDD, systematic debugging) and a conjecture-register discipline: state →
+test → destroy or promote; a conjecture not on the register is a vibe. The invariants above are the
+collection's own; where they and any host project disagree, the host's written contract wins for
+that host and this file is amended — never forked silently.

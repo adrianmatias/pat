@@ -4,9 +4,8 @@
 or premature commitment to the first plausible path (contraction too early).
 
 **Shape.** The **alternating loop** — work breathes in two phases that must not contaminate each
-other, each logged separately (provenance: `dsp/AGENTS.md` "alternating loop (r38)",
-`log/agt-expand.md` ↔ `log/agt-contract.md`; mat's name: *"run 5 more cycles of expand+contract
-towards the goal"*):
+other, each logged separately (one log per phase, so expansion cannot read the contraction's
+verdicts and start self-censoring):
 
 1. **breath-in (expand)** — generate paths toward the objective, **wide and unjudged**. No
    criticism lives here. Numbered options survive until contractively killed.

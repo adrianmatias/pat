@@ -30,5 +30,3 @@ spelunking (`expand-contract` first — *then* sandwich).
 
 **Cost profile.** 1× `deep` + N× `base` + 1× validator turn. The expensive roles only touch
 decisions and evidence; the volume rides on cheap tokens.
-
-*(Documented as "how work is shaped" in `~/pro/dsp/AGENTS.md` and `~/pro/opo/AGENTS.md`.)*

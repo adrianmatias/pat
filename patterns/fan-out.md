@@ -11,14 +11,14 @@ reports into the durable knowledge layer itself:
 2. Delegate: **background subagents, one per question** — fresh context, `base`/`research` role
    (cheap; these children never inherit conversation — *each delegation is born from a single
    goal string*).
-3. Distill: the parent folds the reports into the wiki/notes with **sources and dates** —
-   *"never paste raw reports into the vault"*. Compile, don't RAG.
+3. Distill: the parent folds the reports into the durable notes with **sources and dates** —
+   *never paste raw reports into durable notes*. Compile, don't RAG.
 
 **Rules.**
 - **Cite or omit:** every claim a user could act on carries source + date; fluency without a cite
   is a bug. A number typed into prose is a bug even when it is right — *compute, don't compose*.
-- Raw reports are disposable; the compiled digest is the artifact. `raw/` immutable → `wiki/`
-  compiled → logs chronological.
+- Raw reports are disposable; the compiled digest is the artifact — an immutable source layer, a
+  compiled digest on top of it, and chronological logs beside both.
 - **Keep the absorb path always:** if the delegation route fails silently, absorb the scope inline
   and keep going — a stuck delegation route is a harness fact, not a plan change.
 
