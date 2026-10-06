@@ -1,10 +1,10 @@
-# swatch
+# pat
 
-A swatch book of **agentic work patterns** — orchestration shapes for AI coding agents — with a
+A pattern book for **agentic work** — orchestration shapes for AI coding agents — with a
 **load-on-demand router** for models, patterns and skills. Built for lean, efficient, powerful
 agentic engineering: route first, load only what you run.
 
-Born from the practices documented across `~/pro` projects (dsp, opo, …) and stitched together with
+3-char named per the house obsession (`dsp`, `opo`, `mat`, `agt`, `log`, `raw`, `pro`…). Born from the practices documented across `~/pro` projects (dsp, opo, …) and stitched together with
 [obra/superpowers](https://github.com/obra/superpowers) (vendored, MIT).
 
 ## why
@@ -18,6 +18,7 @@ executable recipe to load) — everything else stays on disk.
 
 ```
 router/index.md    the router: one screen — catalog one-liners, routing rubric, roles, load contract
+router/choose.mjs  Jev picks the pattern for a task (Decisions API; rubric is the offline fallback)
 patterns/          portable pattern designs (human-readable, harness-agnostic)
 skills/            executable recipes, SKILL.md format, loaded only when routed
 models.md          model roles → concrete ids (machine-local), cache discipline
@@ -42,8 +43,8 @@ vendor/superpowers vendored skill library (pinned 8ca22db, MIT)
 
 ## quickstart
 
-1. Point the agent at the router: *read `router/index.md`, route the task, load only what you
-   route.* (`AGENTS.md` says the same.)
+1. Route the task: `node router/choose.mjs "<task>"` (Jev decides), or read `router/index.md` and
+   use the rubric. Load only what you route. (`AGENTS.md` says the same.)
 2. Mount per harness:
    - **DeepSeek Harness** — symlink `skills/` into a preset
      (`~/.dsh/.agent-presets/<id>/skills/`), or just tell the agent the path; the `skills/`

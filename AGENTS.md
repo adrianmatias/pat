@@ -1,4 +1,4 @@
-# swatch — agent contract
+# pat — agent contract
 
 Portable orchestration rules for this collection. One entry, lazy depth. Other harnesses map their
 own tools to it.
@@ -6,8 +6,8 @@ own tools to it.
 ## entry (every task)
 
 1. Read **`router/index.md`** — that is the whole routing surface (one screen).
-2. Route the task: pick **pattern + model roles + skills** using its rubric. State the route in one
-   line before working (`route: cheap-swarm/mid · skills: run-cheap-swarm`).
+2. Route the task: `node router/choose.mjs "<task>"` (Jev picks the pattern) or the index rubric.
+   State the route in one line before working (`route: cheap-swarm/mid · skills: run-cheap-swarm`).
 3. Load **only** what you routed: the pattern file and the named skill. Nothing else. Do not read
    the catalog "just in case" — lean context is the point.
 4. Run the pattern. Respect its kill switches and "when not to".

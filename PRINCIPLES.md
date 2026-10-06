@@ -28,6 +28,7 @@ patterns may specialize them but never contradict them.
 - **Contracts before loops.** Every iterative pattern (sr-and-jr, cascade) runs against a written
   contract/verifier, not vibes.
 - **Reviewers never share the author's family.** Different families, different blind spots.
+- **TDD is not a leash.** For highly capable agents, strict red-green loops are micromanagement: drive work with a written acceptance contract, verify with evidence, treat tests as disposable development aids. Keep strict TDD for weak models, high-stakes cores, or when the human asks.
 - **Evidence before claims.** Validation returns failing cases, not adjectives. (Verification
   before completion.)
 - **Refactor first, then change** — never both in one diff. A move plus a behaviour change cannot
