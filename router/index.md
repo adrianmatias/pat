@@ -12,8 +12,8 @@ State it in one line before working.
 | role | one line | today |
 |---|---|---|
 | `base`/`main` | cheap loop + swarm workhorse | **deepseek 4.1 family** (speed, price, cache-hit) |
-| `deep` | plans, architecture, synthesis | deepseek-v4-pro / **gpt-5.1-sol** (iq/cost) / mimo-v2.6-pro |
-| `agent` | hard agentic turns | **gpt-5.1-sol** (iq/cost) / mimo-v2.6-pro / kimi-k3 |
+| `deep` | plans, architecture, synthesis | deepseek-v4-pro / **gpt-6.1-sol** (iq/cost) / mimo-v2.6-pro |
+| `agent` | hard agentic turns | **gpt-6.1-sol** (iq/cost) / mimo-v2.6-pro / kimi-k3 |
 | `code` | bounded implementation | `base` first, `agent` if dense |
 | `review` | adversarial pass — **never the author's family** | mimo / glm / kimi |
 | `judge` | cheap tie-breaker | `base` / glm-flash |

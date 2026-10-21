@@ -8,8 +8,8 @@ right column per machine, keep the role names stable — patterns reference **ro
 | role | job | never | pick today (this machine) |
 |---|---|---|---|
 | `base` / `main` | cheap agentic loop, swarm workhorse | — | **deepseek 4.1 family**: `deepseek-official/deepseek-flash`, `openrouter/deepseek/deepseek-v4.1-flash` |
-| `deep` | plans, architecture, long synthesis | auto-fallback to it | `deepseek-official/deepseek-v4-pro`, `openrouter/openai/gpt-5.1-sol` (iq/cost), `openrouter/xiaomi/mimo-v2.6-pro` |
-| `agent` | hard agentic turns, tool-heavy | — | `openrouter/openai/gpt-5.1-sol` (iq/cost), `openrouter/xiaomi/mimo-v2.6-pro`, `openrouter/moonshotai/kimi-k3` |
+| `deep` | plans, architecture, long synthesis | auto-fallback to it | `deepseek-official/deepseek-v4-pro`, `openrouter/openai/gpt-6.1-sol` (iq/cost), `openrouter/xiaomi/mimo-v2.6-pro` |
+| `agent` | hard agentic turns, tool-heavy | — | `openrouter/openai/gpt-6.1-sol` (iq/cost), `openrouter/xiaomi/mimo-v2.6-pro`, `openrouter/moonshotai/kimi-k3` |
 | `code` | bounded implementation chunks | — | `base` (deepseek 4.1) first; `openrouter/xiaomi/mimo-v2.6-pro` if dense |
 | `review` | adversarial pass | **same model family as the author** | author=deepseek → `openrouter/xiaomi/mimo-v2.6-*`, `openrouter/z-ai/glm-5.3*`, `openrouter/moonshotai/kimi-k3` |
 | `judge` | cheap tie-breaker / scorer | the models being judged | `base` (deepseek 4.1) or `openrouter/z-ai/glm-5.3-flash` |
