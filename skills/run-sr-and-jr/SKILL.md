@@ -1,6 +1,6 @@
 ---
 name: run-sr-and-jr
-description: Use when a routed task is an iterative draft that improves under critique and the router selected the sr-and-jr pattern. Runs a bounded junior-senior loop: a cheap junior drafts against a written contract, a senior from a different family returns accept or a numbered repair list, max three rounds. Not for exploration or one-shot answers.
+description: "Use when a routed task is an iterative draft that improves under critique and the router selected the sr-and-jr pattern. Runs a bounded junior-senior loop: a cheap junior drafts against a written contract, a senior from a different family returns accept or a numbered repair list, max three rounds. Not for exploration or one-shot answers."
 ---
 
 # run-sr-and-jr
