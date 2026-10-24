@@ -12,20 +12,23 @@ State it in one line before working.
 | role | one line | today |
 |---|---|---|
 | `base`/`main` | cheap loop + swarm workhorse | **deepseek 4.1 family** (speed, price, cache-hit) |
-| `deep` | plans, architecture, synthesis | deepseek-v4-pro / **gpt-6.1-sol** (iq/cost) / mimo-v2.6-pro |
-| `agent` | hard agentic turns | **gpt-6.1-sol** (iq/cost) / mimo-v2.6-pro / kimi-k3 |
+| `deep` | plans, architecture, synthesis | deepseek-v4-pro / **gpt-6.1-sol** (iq/cost) / mimo-v2.6-pro / kimi-k3.1-pro (1M ctx) |
+| `agent` | hard agentic turns | **gpt-6.1-sol** (iq/cost) / mimo-v2.6-pro / kimi-k3.1-pro |
 | `code` | bounded implementation | `base` first, `agent` if dense |
-| `review` | adversarial pass — **never the author's family** | mimo / glm / kimi |
+| `review` | adversarial pass — **never the author's family** | mimo / glm / kimi-k3.1-pro |
 | `judge` | cheap tie-breaker | `base` / glm-flash |
-| `hetero` | swarm diversity slot | rotate mimo-flash, glm-flash, qwen-flash, kimi |
+| `hetero` | swarm diversity slot | rotate mimo-flash, glm-flash, qwen-flash, kimi-k2.7-code |
 
 Full mapping + cache discipline: `models.md`. Single-agent turns may simply ride the local model
-router (`jevonian/auto`) when mounted — it tiers per turn.
+router (`jevonian/auto`) when mounted — it tiers per turn. **No subscription routes:** tokens come
+from API keys only (`deepseek-official`, `openrouter`); there is no Claude subscription
+route, so `claude` is never a role pick.
 
 ## 2 · patterns (catalog)
 
 | id | one line | load |
 |---|---|---|
+| `direct` | no orchestration: same session, same model, no subagents, no artifacts | — |
 | `sandwich` | plan (deep) → execute (cheap ∥) → validate (independent) | `patterns/sandwich.md` |
 | `adversarial` | different-family review pass; findings with failing cases | `patterns/adversarial.md` |
 | `expand-contract` | breath-in wide/unjudged ↔ breath-out kill-with-reasons + ONE move | `patterns/expand-contract.md` |
@@ -47,7 +50,8 @@ Each file carries **when not to** and a kill switch — read it before running t
 | `run-sr-and-jr` | routed to sr-and-jr | `skills/run-sr-and-jr/SKILL.md` |
 | `brainstorming`, `writing-plans`, `subagent-driven-development`, `systematic-debugging`, `verification-before-completion`, `dispatching-parallel-agents`, `writing-skills` | the situation they name | `vendor/superpowers/skills/<name>/SKILL.md` |
 
-Superpowers skills speak Claude Code's tool names — map via `AGENTS.md`.
+Superpowers skills speak Claude Code's tool names — map via `AGENTS.md`. `direct` intentionally loads
+no skill: its recipe is "load nothing".
 
 ## 4 · routing
 
@@ -57,18 +61,22 @@ decides — and it is the sanity check on Jev's answer either way.
 
 ### rubric (in order)
 
-1. **Can you write acceptance checks for it right now?** No, and the task is *what to do* →
+1. **Needs no orchestration?** A question, a lookup, a one-file or one-line edit, a command run, a
+   conversation turn → `direct`: same session, same model, no subagents, no artifacts. The cheapest
+   route is the one that does not exist; do not route a lookup through a pattern.
+2. **Can you write acceptance checks for it right now?** No, and the task is *what to do* →
    `expand-contract` (or `brainstorming` for a single design). No, and the task is *what is true* →
    `fan-out` first.
-2. **Kickoff of a large effort?** → `megaprompt` (verified facts + decision agenda) → its plan goes
+3. **Kickoff of a large effort?** → `megaprompt` (verified facts + decision agenda) → its plan goes
    to `sandwich` or `writing-plans`.
-3. **Independent chunks?** 1–3 → `sandwich` execute stage. 4–6 → `cheap-swarm/min`. 7–15 → `mid`.
+4. **Independent chunks?** 1–3 → `sandwich` execute stage. 4–6 → `cheap-swarm/min`. 7–15 → `mid`.
    16+ or wide sweep → `max` (+ tree-reduce).
-4. **Difficulty unknown?** → `cascade` (cheapest-that-finishes, mechanical verifier required).
-5. **One answer, high stakes?** → `duel`. **One artifact, correctness load-bearing?** → fold
+5. **Difficulty unknown?** → `cascade` (cheapest-that-finishes, mechanical verifier required).
+6. **One answer, high stakes?** → `duel`. **One artifact, correctness load-bearing?** → fold
    `adversarial` (as `sandwich` validate or standalone).
-6. **Draft improves under critique?** → `sr-and-jr`.
-7. **Default: `sandwich`.** When torn between two routes, take the one with the earlier kill switch.
+7. **Draft improves under critique?** → `sr-and-jr`.
+8. **Default: `sandwich`.** When the task earns orchestration and you are torn between two routes,
+   take the one with the earlier kill switch.
 
 ## 5 · standing rules (always apply)
 

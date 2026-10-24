@@ -78,9 +78,9 @@ pat's own [`log/`](log/) is this contract applied to pat — read it as the work
 ## acceptance check (run it, do not assume it)
 
 ```bash
-node ~/pat/router/choose.mjs "a small doc fix"     # expect: route: <pattern> · confidence …
+node ~/pat/router/choose.mjs "a small doc fix"     # expect: route: direct · confidence …
 head -3 /path/to/vault/pat/router/index.md             # expect: the router screen
-ls /path/to/vault/pat/patterns | wc -l                 # expect: 9
+ls /path/to/vault/pat/patterns | wc -l                 # expect: 10
 ```
 
 Routing answered, router readable through the host's own path, patterns present. If the first line

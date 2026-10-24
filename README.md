@@ -35,6 +35,7 @@ vendor/superpowers vendored skill library (pinned 8ca22db, MIT)
 
 | pattern | one line | typical roles |
 |---|---|---|
+| `direct` | no orchestration: same session, same model, no subagents, no artifacts | none |
 | `sandwich` | plan (deep) → execute (cheap, parallel) → validate (independent) | deep + base + review |
 | `adversarial` | one review pass by a different model family, findings with failing cases | review ≠ author's family |
 | `expand-contract` | breath-in wide/unjudged ↔ breath-out kill-with-reasons, contract ONE move | base × N + judge |
@@ -55,7 +56,8 @@ vendor/superpowers vendored skill library (pinned 8ca22db, MIT)
    mounts, nothing copied.
 3. Model roles live in `models.md` — adjust the right column to your providers (deepseek 4.1 is the
    `base`/`main` workhorse: speed, price, capability, cache-hit). If you run a local model router
-   (`jevonian/auto`), single-agent turns can just use it.
+   (`jevonian/auto`), single-agent turns can just use it. There is no subscription route: the keys are
+   the plan (DeepSeek + OpenRouter).
 
 ## design notes
 

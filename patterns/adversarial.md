@@ -15,8 +15,9 @@ precisely crafted context:
    automatically true. Re-review only the contested fixes, not the world.
 
 **Rules.**
-- **`review` never shares the author's family.** Author deepseek → reviewer mimo/glm/kimi; author
-  claude → reviewer deepseek/glm. This is a role invariant, not a preference.
+- **`review` never shares the author's family.** Author deepseek → reviewer mimo/glm/kimi-k3.1-pro;
+  author gpt → reviewer deepseek/kimi. This is a role invariant, not a preference. (No subscription route is
+  used, so a subscription-only family is never author or reviewer.)
 - **Verify each finding against source before applying** — feedback is not automatically true
   (that rule is already in step 3; it earns its own line because skipping it has bitten before).
 - Adversarial, not hostile: the reviewer's job is to find the missed case, not to win. A review
