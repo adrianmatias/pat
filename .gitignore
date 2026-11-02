@@ -4,3 +4,7 @@
 
 # JetBrains project state (same reason: per-machine, not content).
 .idea/
+
+# The append-only trail (log/mat.md, log/agt.md, round artifacts) is local-only: it names people,
+# machines and accounts. The contract lives in AGENTS.md; the content never leaves this machine.
+log/

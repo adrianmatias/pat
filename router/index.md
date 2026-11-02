@@ -11,13 +11,13 @@ State it in one line before working.
 
 | role | one line | today |
 |---|---|---|
-| `base`/`main` | cheap loop + swarm workhorse | **deepseek 4.1 family** (speed, price, cache-hit) |
-| `deep` | plans, architecture, synthesis | deepseek-v4-pro / **gpt-6.1-sol** (iq/cost) / mimo-v2.6-pro / kimi-k3.1-pro (1M ctx) |
+| `base`/`main` | cheap loop + swarm workhorse | **deepseek 4.1 flash** (speed, price, cache-hit); `mimo-v2.6-flash` if output-heavy |
+| `deep` | plans, architecture, synthesis | **mimo-v2.6-pro** (default) / gpt-6.1-sol (iq/cost) / kimi-k3.1-pro (1M synthesis) |
 | `agent` | hard agentic turns | **gpt-6.1-sol** (iq/cost) / mimo-v2.6-pro / kimi-k3.1-pro |
 | `code` | bounded implementation | `base` first, `agent` if dense |
-| `review` | adversarial pass — **never the author's family** | mimo / glm / kimi-k3.1-pro |
-| `judge` | cheap tie-breaker | `base` / glm-flash |
-| `hetero` | swarm diversity slot | rotate mimo-flash, glm-flash, qwen-flash, kimi-k2.7-code |
+| `review` | adversarial pass — **never the author's family** | glm-5.3 (or -flash cheap) / mimo-pro / gemini-4-argon (non-Chinese-lab) / kimi-k3.1-pro (high stakes) |
+| `judge` | cheap tie-breaker | glm-5.3-flash, else `base` |
+| `hetero` | swarm diversity slot | rotate glm-5.3-flash, mimo-v2.6-flash, gemini-4-argon |
 
 Full mapping + cache discipline: `models.md`. Single-agent turns may simply ride the local model
 router (`jevonian/auto`) when mounted — it tiers per turn. **No subscription routes:** tokens come
@@ -48,6 +48,7 @@ Each file carries **when not to** and a kill switch — read it before running t
 | `run-sandwich` | routed to sandwich | `skills/run-sandwich/SKILL.md` |
 | `run-cheap-swarm` | routed to cheap-swarm | `skills/run-cheap-swarm/SKILL.md` |
 | `run-sr-and-jr` | routed to sr-and-jr | `skills/run-sr-and-jr/SKILL.md` |
+| `run-adversarial` | any review of an artifact, plan or diff by another model family | `skills/run-adversarial/SKILL.md` |
 | `brainstorming`, `writing-plans`, `subagent-driven-development`, `systematic-debugging`, `verification-before-completion`, `dispatching-parallel-agents`, `writing-skills` | the situation they name | `vendor/superpowers/skills/<name>/SKILL.md` |
 
 Superpowers skills speak Claude Code's tool names — map via `AGENTS.md`. `direct` intentionally loads

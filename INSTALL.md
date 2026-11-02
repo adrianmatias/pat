@@ -73,7 +73,9 @@ bottom) and `agt.md` (the agent's replies, one entry per round, `H1 = date`), th
 block from pat's own [`AGENTS.md`](AGENTS.md) into the host's `AGENTS.md`. Keep it to those few
 lines: the host's `AGENTS.md` is the only always-loaded context.
 
-pat's own [`log/`](log/) is this contract applied to pat — read it as the worked example.
+pat keeps its own `log/` under the same contract, but locally and gitignored: a real trail names
+people, machines and accounts, so it does not belong in a public repo. Do the same in any host you
+publish.
 
 ## acceptance check (run it, do not assume it)
 

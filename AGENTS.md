@@ -20,6 +20,8 @@ own tools to it.
   shape as `log/mat.md`), topic subsections under `##` below it. Never rewrite, reorder or delete an
   earlier entry. **Persist every reply there**: it is the portability record across harnesses.
 - Hosts get the same two files; `INSTALL.md` carries the block to copy.
+- pat's own `log/` is local and gitignored: the trail names people and machines, so it stays off the
+  public history. Create it on first use.
 
 ## tool vocabulary (superpowers → this harness)
 

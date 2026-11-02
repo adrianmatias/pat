@@ -1,33 +1,34 @@
 # pat
 
-A pattern book for **agentic work** — orchestration shapes for AI coding agents — with a
-**load-on-demand router** for models, patterns and skills. Built for lean, efficient, powerful
-agentic engineering: route first, load only what you run.
+A pattern book for agentic engineering: ten orchestration shapes for AI coding agents, a one-screen
+router that picks one per task, the skills that run them, and model roles instead of model names.
 
-3-char named after a house habit (`dsp`, `opo`, `mat`, `agt`, `log`, `raw`…). Distilled from practice
-on real ML/data systems and stitched together with [obra/superpowers](https://github.com/obra/superpowers)
-(vendored, MIT). Self-contained: everything pat needs is in this repo, and it has no dependency on
-any other project.
+- **Route a task:** `node router/choose.mjs "<task>"` → `route: <pattern> · confidence …` (needs
+  `OPENROUTER_API_KEY`; without it, use the rubric in [`router/index.md`](router/index.md)).
+- **Then load only what you routed:** `patterns/<pattern>.md` and its skill under `skills/`.
+- **Patterns:** `direct` · `sandwich` · `adversarial` · `expand-contract` · `megaprompt` ·
+  `cheap-swarm` · `sr-and-jr` · `cascade` · `duel` · `fan-out` (one-liners below).
+- **Invariants:** [`PRINCIPLES.md`](PRINCIPLES.md), the steering layer every pattern obeys — the long
+  form is at <https://taoaieng.io/principles/>. Install recipes: [`INSTALL.md`](INSTALL.md).
 
 ## why
 
 Most agent waste is one of two kinds: **context** loaded that never gets used, or **money** spent on
-a frontier model doing slice work. This collection fixes both: one small routing screen decides the
-*pattern* (how work is shaped), the *model roles* (who plays which part), and the *skills* (what
-executable recipe to load) — everything else stays on disk.
+a frontier model doing slice work. One small routing screen decides the *pattern* (how work is
+shaped), the *model roles* (who plays which part), and the *skills* (which executable recipe to
+load) — everything else stays on disk.
 
 ## layout
 
 ```
 INSTALL.md         how to mount pat into a project or vault (4 recipes + acceptance check)
 router/index.md    the router: one screen — catalog one-liners, routing rubric, roles, load contract
-router/choose.mjs  Jev picks the pattern for a task (Decisions API; rubric is the offline fallback)
+router/choose.mjs  picks the pattern for a task (one Decisions-API call; the rubric is the fallback)
 patterns/          portable pattern designs (human-readable, harness-agnostic)
 skills/            executable recipes, SKILL.md format, loaded only when routed
 models.md          model roles → concrete ids (machine-local), cache discipline
 PRINCIPLES.md      the invariants every pattern obeys (distilled from practice)
 AGENTS.md          agent entry contract (keep as the only standing context)
-log/               mat.md + agt.md — the append-only trail, as the contract applied to pat itself
 vendor/superpowers vendored skill library (pinned 8ca22db, MIT)
 ```
 
@@ -46,27 +47,18 @@ vendor/superpowers vendored skill library (pinned 8ca22db, MIT)
 | `duel` | two drafts from different families, cheap judge against a pre-written rubric | base + hetero + judge |
 | `fan-out` | one question per fresh subagent → distill reports with cites | base × N + parent |
 
-## quickstart
-
-1. Route the task: `node router/choose.mjs "<task>"` (Jev decides), or read `router/index.md` and
-   use the rubric. Load only what you route. (`AGENTS.md` says the same.)
-2. Install it into a project or vault — **[`INSTALL.md`](INSTALL.md)**: four recipes (vault symlink,
-   DSH preset, vendored, submodule), the `.obsidian/` doctrine, the `log/mat.md` + `log/agt.md`
-   contract, and the acceptance check to run afterwards. Short version: one canonical clone, symlink
-   mounts, nothing copied.
-3. Model roles live in `models.md` — adjust the right column to your providers (deepseek 4.1 is the
-   `base`/`main` workhorse: speed, price, capability, cache-hit). If you run a local model router
-   (`jevonian/auto`), single-agent turns can just use it. There is no subscription route: the keys are
-   the plan (DeepSeek + OpenRouter).
-
 ## design notes
 
 - Patterns are portable prose; skills are host recipes; the router is the only always-loaded page.
   Three load levels, one screen of standing context.
 - Every pattern carries **when not to** and a kill switch. A pattern that fails gets fixed or
   deleted — see `PRINCIPLES.md`.
-- Prices and catalogs drift; this repo owns *roles and shapes*, your router owns prices.
+- Model roles live in `models.md`; adjust the right column to your providers. Prices and catalogs
+  drift; this repo owns *roles and shapes*, your router owns prices.
+- Distilled from practice on ML/data systems and stitched together with
+  [obra/superpowers](https://github.com/obra/superpowers) (vendored, MIT). Self-contained: nothing
+  outside this repo is required.
 
 ## license
 
-MIT (see `LICENSE`). Vendored `vendor/superpowers` is MIT, Copyright (c) 2025 Jesse Vincent.
+MIT (see [`LICENSE`](LICENSE)). Vendored `vendor/superpowers` is MIT, Copyright (c) 2025 Jesse Vincent.
